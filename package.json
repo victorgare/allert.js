@@ -1,0 +1,17 @@
+{
+  "name": "allert",
+  "version": "1.0.0",
+  "description": "A simple JavaScript notification library ",
+  "main": "allert.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "allert",
+    "alert",
+    "notification",
+    "toast"
+  ],
+  "author": "Philippe Silva <philippe.silva@outlook.com>",
+  "license": "ISC"
+}
