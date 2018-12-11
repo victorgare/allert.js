@@ -1,14 +1,15 @@
 /**
- * == allert.js ==
+ * allert.js
  * A simple JavaScript notification library
  *
  * author: Philippe Silva
  * date: december 09, 2018
  * version: 1.0.0
- * copyright - nice copyright over here
+ *
  */
 
-/* Show a allert on the page
+/*
+ * Show a allert on the page
  * Params:
  *  text: text to show
  *  options: object that can override the following options
@@ -21,46 +22,55 @@ function allert(text, options) {
 
     var defaultOptions = {
         'type': null,              // type is  CSS class `alert-type`
+        'align': "bottom-left",
         'icon': null,              // class of the icon to show before the alert text
-        'duration': '2000',        // duration of the notification in ms
-        'container-id': 'body'     // id of the alert container
+        'duration': 2000,        // duration of the notification in ms
+        'container-id': "body"     // id of the alert container
     }
 
-    options = (typeof options == 'object') ? options : defaultOptions;
+    options = (typeof options == "object") ? options : defaultOptions;
 
     // set options
     for (var propertyName in defaultOptions) {
 
-        if (options[propertyName] === undefined ||
-            options[propertyName] === null ||
-            options[propertyName] === "") {
+        if (defaultOptions.hasOwnProperty(propertyName)) {
 
-            options[propertyName] = defaultOptions[propertyName];
+            if (options[propertyName] === undefined ||
+                options[propertyName] === null ||
+                options[propertyName] === "") {
+
+                options[propertyName] = defaultOptions[propertyName];
+            }
         }
+
     }
 
     var container = (options["container-id"] === "body") ? document.getElementsByTagName("body")[0] : document.getElementById(options["container-id"]);
 
-    var type_markup = "";
-    var icon_markup = "";
+    var typeMarkup = "";
+    var iconMarkup = "";
 
     if (options.icon) {
-        icon_markup = "<span class='" + options.icon + "'></span> ";
+        iconMarkup = "<span class='" + options.icon + "'></span> ";
     }
 
     if (options.type) {
-        type_markup = 'allert-' + options.type;
+        typeMarkup = "allert-" + options.type;
     }
 
     // Generate the HTML
     var element = document.createElement("div");
 
-    element.setAttribute("class", "allert " + type_markup);
-    element.setAttribute('title', text);
+    element.setAttribute("class", "allert allert-" + options.align + " " + typeMarkup);
+    element.setAttribute("title", text);
 
-    element.innerHTML = icon_markup + text;
+    element.innerHTML = iconMarkup + text;
 
     container.appendChild(element);
+
+    var close = function (element) {
+        element.remove();
+    };
 
     // Remove allert on click
     element.addEventListener('click', function () {
@@ -71,8 +81,4 @@ function allert(text, options) {
     setTimeout(function () {
         close(element);
     }, options.duration);
-
-    var close = function (element) {
-        element.remove();
-    };
 }
