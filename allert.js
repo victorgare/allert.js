@@ -69,7 +69,12 @@ function allert(text, options) {
     container.appendChild(element);
 
     var close = function (element) {
-        element.remove();
+        element.classList.add("fadeout");
+
+        // after the fadeout remove the element from DOM
+        setTimeout(function () {
+            element.remove();;
+        }, 1000);
     };
 
     // Remove allert on click

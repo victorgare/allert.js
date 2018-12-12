@@ -64,3 +64,9 @@
     bottom: 20px;
     right: 20px;
 }
+
+.fadeout {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 1s, opacity 0.3s linear;
+}
