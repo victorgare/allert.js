@@ -41,6 +41,27 @@
     background-color: #49cb61;
 }
 
+.allert-success::before{
+    content: "\2714";
+    padding-right: 10px;
+}
+
+.allert-warning::before{
+    content: "\26A0";
+    padding-right: 10px;
+    
+}
+
+.allert-info::before{
+    content: "\2139";
+    padding-right: 10px;
+}
+
+.allert-danger::before{
+    content: "\0021";
+    padding-right: 10px;
+}
+
 .allert span {
     margin-right: 10px;
 }

@@ -73,7 +73,7 @@ function allert(text, options) {
 
         // after the fadeout remove the element from DOM
         setTimeout(function () {
-            element.remove();;
+            // element.remove();;
         }, 1000);
     };
 
