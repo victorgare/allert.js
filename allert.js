@@ -22,7 +22,7 @@ function allert(text, options) {
 
     var defaultOptions = {
         'type': null,              // type is  CSS class `alert-type`
-        'align': "bottom-left",
+        'align': "top-right",
         'icon': null,              // class of the icon to show before the alert text
         'duration': 2000,        // duration of the notification in ms
         'container-id': "body"     // id of the alert container

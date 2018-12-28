@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Allert.js</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
+
+    <link href="/assets/css/dashboard.css" rel="stylesheet" />
+    <!-- <script src="/assets/js/dashboard.js"></script> -->
+
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
         crossorigin="anonymous">
@@ -13,15 +18,96 @@
 
 </head>
 
-<body>
+<body class="">
+
+    <div class="page pt-5">
+        <div class="page-main">
+            <div class="my-3 my-md-5">
+                <div class="container">
+                    <div class="row mx-auto justify-content-md-center">
+                        <div class="col-lg-9">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="example example-bg">
+                                        <div class="row row-cards row-deck">
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <div class="card-status bg-green"></div>
+                                                    <div class="card-header">
+                                                        <h3 class="card-title">Allert success</h3>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <button class="btn btn-success btn-block">Allert success</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <div class="card-status bg-yellow"></div>
+                                                    <div class="card-header">
+                                                        <h3 class="card-title">Allert warning</h3>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <button class="btn btn-warning btn-block">Allert warning</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <div class="card-status bg-info"></div>
+                                                    <div class="card-header">
+                                                        <h3 class="card-title">Allert info</h3>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <button class="btn btn-info btn-block">Allert info</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <div class="card-status bg-danger"></div>
+                                                    <div class="card-header">
+                                                        <h3 class="card-title">Allert danger</h3>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <button class="btn btn-danger btn-block">Allert danger</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="allert.js"></script>
 
     <script>
-        allert('Allert', {
-            icon: "fa fa-check",
-            duration: 5000
-        });
+
+        const successButtons = document.getElementsByClassName("btn-success");
+        const warningButtons = document.getElementsByClassName("btn-warning");
+        const infoButtons = document.getElementsByClassName("btn-info");
+        const dangerButtons = document.getElementsByClassName("btn-danger");
+
+        setEvent(successButtons, "success");
+        setEvent(warningButtons, "warning");
+        setEvent(infoButtons, "info");
+        setEvent(dangerButtons, "danger");
+
+        function setEvent(objects, type) {
+            for (const object of objects) {
+                object.addEventListener("click", function () {
+                    allert('Allert', {
+                        type: type
+                    });
+                });
+            }
+        }
     </script>
 
 </body>
